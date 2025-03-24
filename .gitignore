@@ -42,3 +42,29 @@ Here are all the commands summarized:
 
 
 
+/vendor
+/node_modules/
+/cache/
+/logs/
+/tmp/
+/.idea/
+/.vscode/
+/nbproject/
+*.log
+*.tmp
+*.cache
+*.env
+*.DS_Store
+composer.lock
+*.iml
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.bak
+Thumbs.db
+
+
+/php4Web/vendor
+/php_OOP/vendor
+_phpBox/vendor
+
