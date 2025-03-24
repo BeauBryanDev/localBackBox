@@ -1,6 +1,9 @@
 #Ignore the vendor folder 
 /vendor /
 
+#Ignore all vendor folder from this main repository
+**/vendor/
+
 #Also Ignore the other files and directories from logs 
 
 *.log
@@ -65,6 +68,6 @@ Thumbs.db
 
 
 /php4Web/vendor
-/php_OOP/vendor
+/php_00P/vendor
 _phpBox/vendor
 
