@@ -1,0 +1,12 @@
+<?xnk version="1.0" encoding="UTF-8" ?>
+
+<phpunit bootstrap="vendor/autoload.php" colors="true" >
+
+    <testsuit name="Test directory">
+
+        <directory>
+        tests
+        </directory>
+    </testsuit>
+
+</phpunit>

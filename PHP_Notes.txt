@@ -1,0 +1,754 @@
+PHP ADV FUNCTIONS 
+
+CONSTANTES 
+
+DIFERENCIA CONST VS DEFINE
+
+Const:
+
+Funciona dentro y fuera de la definición de una clase
+Define las constantes en tiempo de compilación
+No podemos usarlos dentro de bloques de código
+Solo acepta tipos de dato escalares
+Siempre es case sensitive .
+
+
+Define:
+
+Solo funciona fuera de la definición de una clase
+Define las constantes en tiempo de ejecución
+Si podemos usarlos dentro de bloques de código
+Acepta cualquier expresión
+Puedes definir case insensitive pasando “true” en el tercer argumento. (Esto solo para versiones anteriores a PHP 8, ya que a partir de la version 8 el valor “true” no es valido).
+
+CONSTANTES MÁGICAS
+
+__LINE__: Nos indica en que línea está actualmente el script.
+
+__FILE__: Nos indica cual es el archivo que se está ejecutando actualmente.
+
+__DIR__: Nos brinda la dirección del archivo del cual es llamada.
+
+ClassName::class: Nos brinda el nombre completo de una clase.
+
+
+Estas son algunas de las constantes predefinidas que podremos usar más habitualmente
+
+__FILE__: Contiene la ruta completa y el nombre del archivo actual.
+__DIR__: Contiene el directorio del archivo actual.
+__LINE__: Contiene el número de línea del archivo actual.
+__FUNCTION__: Contiene el nombre de la función.
+__CLASS__: Contiene el nombre de la clase.
+__METHOD__: Contiene el nombre del método de la clase.
+__TRAIT__: Contiene el nombre del trait.
+__NAMESPACE__: Contiene el nombre del espacio de nombres actual.
+
+
+$$Variables Variables ....
+
+
+SCOPE :: El scope (o ambito de las variables) es el contexto en donde una variable es definida. Usualmente, la mayor parte del tiempo una variable tiene un ambito simple, es decir, esta disponible en todo el archivo e incluso en otros archivos donde se haga un require ().
+
+Ambito local Cuando empezamos a usar funciones el ambito de cualquier variable definida dentro de la funcion pasa a ser un ambito local. 
+En otras palabras, esa variable solo existe dentro de la funcion.
+
+Debe USar La palabra reservada global Cuando queremos que una variable externa exista dentro de una funcion sin necesidad de pasarla como parametro.
+
+Es posible ver todas las variables globales disponibles y creadas usando la variable $GLOBALS, y como este devuelve un array de las variables disponibles puedes acceder a estas.
+
+
+El array $GLOBALS es un array asociativo con el nombre de la variable global como clave y los contenidos de dicha variable como el valor del elemento del array. 
+$GLOBALS existe en cualquier ámbito, esto ocurre ya que $GLOBALS es una superglobal. Aquí hay un ejemplo que demuestra el poder de las superglobales:
+
+
+VARIABLES SUPER_GLOBALES : 
+
+Estan Disponibles en cualquier parte de Codigo .
+
+Las variables superglobales son variables predefinidas por PHP que estén disponibles en cualquier parte del cédigo, incluso sin necesidad de usar la palabra reservada global.
+
+$GLOBALS: Nos brinda información de todas las variables globales que existen.
+
+$_SERVER: Nos brinda información del servidor.
+
+$_GET: Nos brinda información de todas las variables o parámetros que son pasadas por URL.
+
+$_POST: Nos brinda información de las variables que son enviadas a través del método POST de HTTP.
+
+$_FILES: Nos brinda información de variables de subida de ficheros HTTP con el método POST.
+
+$_COOKIE: Nos brinda información de todas las cookies.
+
+$_SESSION: Nos brinda información de todas las variables de sesiones.
+
+$_REQUEST: Por defecto contiene el contenido o valores de las variables superglobales $_GET, $_POST y $_COOKIE.
+
+$_ENV: Nos brinda información del entorno en el que se está ejecutando PHP.
+
+
+Redirecciones en BackEnd con PHP  ...
+
+
+Los Headers siempre se deben enviar antes de mandar el cuerpo de la Peticion , al inicio de la peticion. 
+
+En el modelo cliente/servidor es comin querer enviar informacion extra (autenticacion, control de cookies, control de caché, etc.). Esto lo podemos hacer con la funcion header.
+
+puedes mandar:
+
+autenticacion
+control de cookies
+control de cache
+
+Uno de los headers que podemos mandar son redirects,es decir, el servidor puede responder al navegador, Heyyy redirige al usuario a esta pagina.
+
+header ("Location: https://platzi.com");
+Tambien puedes redirigir a archivos especificos pero ten cuidado de no generar un bucle ten cuidado de hacer esto .
+
+Los encabezados siempre deben ser enviados antes de enviar el cuerpo de la peticion,es decir antes de mandar el contenido.
+Eso quiere decir que, si imprimes HTML o cualquier otra cosa que genere cuerpo, al intentar redirigir con header obtendras un error.
+
+Recuerda utlizar la funcion exit() o die() al terminar tus headers para que los crawlers se detengan de analiza .
+ 
+so se coloca porque si por alguna razón la redirección no se llega a ejecutar, pues al menos con el die o con el exit le dices al servidor que ya no ejecute nada más.
+
+
+Match .
+
+Case vs Match ; 
+
+
+$$Funciones Variables () :
+
+
+Parametros por Refferencias () : 
+
+
+u+Usando pasamos parametros a una funcion, lo que hacemos es hacer una copia de la variable, es decir, estamos guardando el mismo valor en diferentes espacios.
+
+Hacer un paso por referencia significa que, en lugar de mandar una copia de la variable, estamos mandando la referencia de dicha variable. Es decir, estamos apuntando al mismo espacio en memoria gracias a que tenemos su referencia.
+
+Para acceder a la referncia en memoria usamos & en la variable deseada para acceder a la variable original &$myVar ;
+
+
+ARG INDEEP ; 
+
+
+Existe la funcionalidad de poder colocar arrays como argumentos .
+
+Los trailing commas son comas que van el apartado de los parametros de tu funcion, lo que destaca es que estos parametros pueden terminar con coma sin marcar error. 
+
+Recibir clases como parametros (no instancias sino la inicializacion de una(solo php > 8) .>
+
+puedes mandar clases como argumentos a tu funcion, esto puede ser muy util para funciones con un objetivo muy general.
+
+los parametros obligatorios deben ir primero y despues los parametros opcionales .
+
+
+NAMED ARGUMENTs .
+
+
+Argumentos Nombrados son una característica introducida en PHP 8.0 que permite pasar argumentos a una función basándose en el nombre del parámetro, en lugar de la posición del parámetro. Esta característica puede ser muy útil, especialmente en funciones con un gran número de parámetros o cuando el orden de los parámetros NO es intuitivo o fácil de recordar .
+
+Sintaxis: La sintaxis para pasar un argumento nombrado implica escribir el nombre del parámetro seguido de dos puntos y luego el valor para el argumento.  
+
+Legibilidad: Los argumentos nombrados pueden mejorar significativamente la legibilidad del código, especialmente en el caso de funciones que toman múltiples argumentos con valores predeterminados. 
+Al usar argumentos nombrados, es claro qué valor corresponde a qué parámetro sin tener que contar la posición del argumento. 
+
+Mantenibilidad: El código puede ser más fácil de mantener y entender cuando se usan argumentos nombrados, ya que el nombre del parámetro proporciona un contexto adicional sobre qué representa cada valor pasado a la función. 
+
+Compatibilidad: Los argumentos nombrados son compatibles con cualquier función o método en PHP, y están completamente controlados por el llamador. Esto significa que puedes usar argumentos nombrados al llamar a cualquier función o método en PHP, independientemente de si fue definido por ti, por PHP o por una biblioteca de terceros.
+
+Uso Tradicional vs Argumentos Nombrados: Tradicionalmente, cuando llamas a una función en PHP, pasas argumentos en el orden definido en la función. Con los argumentos nombrados, puedes especificar un valor para un parámetro prefixando el valor con el nombre del parámetro seguido de dos puntos, lo que te permite pasar argumentos en cualquier orden y omitir argumentos opcionales que tienen valores predeterminados. 
+
+Esta característica proporciona una mayor flexibilidad y puede hacer que el código sea más claro y fácil de entender, lo que puede ser muy beneficioso en proyectos grandes o complejos. 
+
+
+Funciones Anonimas   Clousres  :>
+
+Pueden ser guardadas dentro de variables  y dentro guardar una funcion sin nombre como instancia de la clase clousures en php . 
+
+Cloures ~/~ CallBacks ; 
+
+Cuando queremos que una vairable externa exista dentro de un Clousure sin necesidad de pasarla como parametro se puede usar la palabra reservada "use" en php ; 
+
+Con "use" cambiamos el ambito de la variable de global a local y la podemos usar dentro del closure, pero debemos tener en cuenta que solo podemos leerla, mas no cambiar su valor .
+
+Las funciones anónimas o también conocidas como Closures son funciones que podemos definir sin necesidad de asignarles un nombre.
+
+Las podemos guardar dentro de variables, pero su uso mas común es pasarlas como parámetro de otra función. 
+
+
+Arrow Functions => php => exprs   :>>
+
+
+Sintaxis mas precisa de la funciones anonimas en php ;
+
+Estas tambien son implementadas usando iinstancia de la clase Clousure .
+
+la Diferencia con las funciones anonimas es que las ArrowFUnctions nNo declaran un scope local, No definen ambito local, mas si Ambito Global.
+
+No se puede Modificar una variable global desde una ArrowFunction() ;
+
+
+Declaracion dde typo Escalar  :>   
+
+Declara el tipo de datos entrar como parametro en una funciton en php.
+
+Declarar que typo de datos quiero recibir al return de una function ;
+
+Tpiado de funciones optional en php ;
+Se puede hacer obligatorio poniendo la palabra "declare" al inicio ; 
+
+Cuando declaramos una funcion es posible indicar que tipo de datos queremos recibir en nuestros parametros. Esto nos da la certeza de que estamos trabajando con el tipo de dato que realmente necesitamos.
+
+
+Declaracion de Typo Devolucion  : devolver   .> 
+
+De la misma forma que podemos declarar que tipo de dato queremos recibir, tambien podemos declarar que tipo de dato va a devolver nuestra funcioon. 
+
+
+function suma(int $n1, int $n2) : int {
+
+    return $n1 + $n2;
+    
+}
+
+<?php
+
+declare(strict_types=1);
+
+function calcular_area_triangulo(int $base, int $altura) : float
+{
+	return ($base * $altura) / 2;
+}
+
+echo calcular_area_triangulo(7,5);
+
+echo "\n";
+
+READ IT ASAP :
+
+PHP FUNCTIONS() :
+
+https://www.php.net/manual/es/functions.anonymous.php
+
+
+PHP NEW FEATURES :
+
+https://www.php.net/manual/es/migration70.new-features.php#migration70.new-features.scalar-type-declarations
+
+
+PHP INTERMEDIATE PART II .
+
+
+La Funcion dd() :
+
+dd() = Dump and Die
+
+ddd() = Dump, Die and Debug ;
+
+synfony/var-dumper nos habilita 2 funciones
+
+dd() que nos muestra los datos y ejecuta die() al finalizar
+debug() que solo muestra los datos y continua su ejecución .
+
+
+COOKIES COOKIES COOKIES    _:> 
+
+
+Un Pedazo de Moemoria que my computadora le presta a cualquier pagina Web para que esta guarde informacion sobre @mee para futuras visitas .
+
+Cookies NO se pueden Auto-Gardar Nunca .
+
+El  Usuario debe dar Permiso para guardar informacion acerca @mee .
+
+Cookies almacenan y Guardan INF  NO Sensible y permonal sobre @mee .
+
+Solo Si  ya habeis visitado el WebSite antes de Session pasada. 
+
+Pueedes Obtener las Cookies guardadas através de la variable 
+SuperGlobal $_COOKIEs 
+
+Para Definirse una Cookie se puede usar los Metodos :
+
+setCookie()  ; 
+setRawCookie()  ;
+
+Superglobal $_COOKIE para obtener las cookies guardadas. Métodos setcookie() o setrawcookie() para definir una cookie. 
+Éstos aceptan los siguientes argumentos:
+{
+name:
+value:  
+}
+httponly Cuando es true la cookie será accesible sólo a través del protocolo HTTP. Esto significa que la cookie no será accesible por lenguajes de scripting, como JavaScript. Se ha indicado que esta configuración ayuda efectivamente a reducir el robo de identidad a través de ataques XSS, No es soportada por todos los Navegadores .
+
+httponly : true quiere decir que no lo pueden leer desde javascript. Y false si los deja leer .
+
+Parámetros que admite el método setcookie():
+
+name:
+value:
+expires_or_options: fecha de expiración de la cookie expresada en 		formato Unix timestamp .   * it is $expires now * .
+path:
+domain:
+secure:
+httponly:
+
+Description de Parametros de Cookies :
+
+name: El nombre de la cookie.
+
+value: El valor de la cookie. 
+
+Expires_or_options: La fecha de expiración de la cookie expresada en formato Unix timestamp. 
+En este caso se ha establecido en 0, lo que significa que la cookie expirará al finalizar la sesión.
+
+Path: La ruta dentro del servidor a la que la cookie está disponible. En este caso se ha establecido en "/" lo que significa que la cookie está disponible en todo el sitio.
+
+Domain: El dominio para el que la cookie está disponible. En este caso se ha establecido en "localhost".
+
+Secure: Un valor booleano que indica si la cookie sólo está disponible en conexiones seguras (https). En este caso se ha establecido en false.
+
+httponly: Un valor booleano que indica si la cookie puede ser accedida por el frontend con js  .
+
+
+Documentacion php.net
+https://www.php.net/manual/es/function.setcookie.php
+
+Cuando httpOnly está establecido como true:
+
+- La cookie SOLO puede ser accedida por el servidor por HTTP.
+
+- JavaScript NO puede leer la cookie usando document.cookie.
+
+- Ayuda a prevenir el robo de cookies mediante scripts maliciosos .
+
+Caso de USo :    <<Seguridad contra  XSS />>
+
+- Recomendado para cookies que contienen:
+
+- IDs de sesión .
+
+- Tokens de autenticaciónv.
+
+- Información sensible .
+
+- No usar cuando necesites acceder a la cookie desde JavaScript .
+
+Es una buena práctica de seguridad habilitar httpOnly en todas las cookies que no necesiten ser accedidas desde JavaScript .
+
+Seguridad en Cookies :
+
+-Si las usas NO poner datos sensibles en ella (solamente usarse preferencias de usuario, ejemplo: modo dia, modo noche ) \n .
+
+Siempre poner fecha de expiracion.
+
+Siempre poner el dominio y el path.
+
+Usar solamente en HTTPS .
+
+<< Es mejor usar sessiones del lado del servidor que cookies del lado del cliente >> 
+
+Encriptar los datos que van en la cookie .
+
+Ademas de la encritacion firmarlas, usando hash por Integridad  .
+
+. Las cookies son algo que puede durar mucho más tiempo y solo se puede usar para no almacenar datos no sensibles. 
+
+
+Sesiones  << Web Sessions />>
+
+
+Estas Nos Permiten implementar sistemas de autenticacion dentro de nuestro WebSite,  Una Session es una cookie temporal y encrpyrada que estará viva y contrendrá toda la informacion del Usuario mientras este activa la session del naevador. 
+
+Las Sessiones son Destruidas cunado hacemos LogOut .
+
+Con las Sessiones podemos tener informacion espeficifa de un usuario para personalizarle su contenido que mostrar al usuario actual .
+
+Todos los datos personales del Usuario van estar guardados en la vairable SuperGLOBAL $_SESSION ;
+
+#EG : if / isset( $_SESSION["Sid"] )  => echo $_SESSION["userName"] ;
+
+Funcion para crear Sessiones en .php :
+
+session_start ( ) ; 
+
+Una vez que se tenga una sesion iniciada con algun Usuario se puede comenzar a escribir y obtener datos a través de la SuperGlobal var :
+
+$_SESSION  : It is an array() ;
+
+No usar $_SESSION  mas de una vez , No se debe usar dos veces 
+session_start, pues puede causar problemas .
+
+Una vez que tenemos una sesion iniciada, podemos empezar a escribir y obtener datos a traves de la variable superglobal $_SESSION (Un arreglo de datos unico por usuario), cuando cerremos la sesion estos datos serán borrados en  LOG-OUT .
+
+Al usar sesiones es que crea una cookie llamado PHPSESSIONID, si NO hacemos que las sesiones expiren puede implicar una VULNERABILIDAD DE SEGURIDAD. 
+
+Soluciones a la vulnerabilidad de session_id .
+
+i. usar session_regenerate_id .
+ii. Definir un timeout en el php.init (ini.session.gc-maxlifetime) .
+
+Una sesión de usuario es un mecanismo para mantener información persistente entre solicitudes de páginas web. 
+Cuando un usuario visita un sitio web y comienza una sesión, se genera una identificación de sesión única que se almacena en una cookie en el navegador del usuario. A partir de entonces, cualquier variable de sesión que se defina estará disponible para su uso en todas las páginas del sitio web durante esa sesión, habilita el usso de variables de session .
+
+La superglobal $_SESSION se utiliza para almacenar y acceder a las variables de sesión en PHP. Una vez que se ha iniciado la sesión con session_start(), las variables de sesión se pueden establecer y recuperar utilizando El Array() [ $_SESSION ] . 
+
+$_SESSION es un arreglo con toda la información del usuario que se trae de una base de datos. Esta información es única por usuario.
+
+Con session_destroy() terminamos la sesion . \n .
+
+Para cerrar una sesión usamos el método session_destroy() \n .
+
+unset($_SESSION);
+session_destroy(); 
+
+
+Las sesiones en PHP son una forma de almacenar información (en variables) que se puede utilizar a través de múltiples páginas. 
+A diferencia de las cookies, la información de la sesión se almacena en el servidor. 
+
+@Enviar cualquier caracter html, se envía automáticamente el header, que es donde están las cookies, que son parte de la sesion, por lo tanto dará error. Pero si es posible tener espacios y codigo php antes de la función session_start, de hecho se usa tener lineas de configuración para la misma función session_start antes de iniciar la sesion, y tecnicamente se puede tener cualquier codigo php, mientras no necesite de la sesion y mientras no imprima nada en pantalla o genere algún error (que imprimiría codigo en pantalla, lo que forzaría a que se envíe el header antes que se inicie la sesion) \n .
+
+
+Para trabajar con sesiones en PHP, primero debes iniciar la sesión en la página en la que deseas almacenar datos. Puedes hacer esto utilizando la función session_start(). Una vez que se ha iniciado la sesión, puedes almacenar datos en la variable global $_SESSION.
+
+Para finalizar una sesión en PHP, puedes utilizar la función session_destroy(). Esto eliminará todos los datos almacenados en la sesión y cerrará la sesión del usuario. \n .
+
+
+PHP Sessions Offitial Dcts :
+
+https://www.php.net/manual/es/intro.session.php  
+
+
+PHP  Exceptions :>
+
+$e->getMessage(); Obtiene el mensaje de Excepción 
+$e->getCode(); Obtiene el código de una excepción 
+$e->getFile(); Obtiene el fichero en el que se creó la excepción 
+$e->getLine(); Obtiene la línea en el que se creó la excepción 
+$e->getTrace() Obtiene la traza de la pila .
+$e->getTraceAsString() Obtiene la traza de la pila como una cadena de caracteres .
+
+
+EL MEmétodo getMessage() devuelve una cadena de texto que describe el mensaje de la excepción.
+
+El método getCode() devuelve un entero que representa el código de la excepción.
+
+El método getFile() devuelve una cadena de texto que indica el nombre del archivo donde se lanzó la excepción.
+
+El método getLine() devuelve un entero que representa el número de línea donde se lanzó la excepción.
+
+El método getTrace() devuelve una matriz de información de seguimiento que muestra la secuencia de llamadas a la excepción.
+
+El método getTraceAsString() devuelve una cadena de texto con la información de seguimiento en un formato legible.
+
+El método getPrevious() devuelve una instancia de Throwable que representa la excepción anteriormente lanzada, si la hay.
+
+El método __toString() devuelve una cadena de texto que representa la excepción como una cadena formateada.
+
+El método heredado __toString() de la interfaz Stringable también devuelve una cadena de texto que representa la excepción como una cadena formateada.
+
+ 
+DATE AND TIME in  PHP .
+
+date(string $format, int $timestamp = time()): string 
+
+Devuelve una cadena formateada según el formato dado usando el parámetro de tipo integer timestamp dado o el momento actual si no se da una marca de tiempo. En otras palabras, timestamp es opcional y por defecto es el valor de time().
+
+PHP DATEs 
+https://www.php.net/manual/es/function.date.php
+
+Funciones de Fecha/Hora
+https://www.php.net/manual/es/ref.datetime.php
+
+//Obtener la fecha actual:
+$fecha_actual = date('Y-m-d'); // Retorna la fecha actual en formato 'año-mes-día'
+
+//Obtener la hora actual:
+$hora_actual = date('H:i:s'); // Retorna la hora actual en formato 'hora:minuto:segundo' 
+
+//Sumar días a una fecha:
+$fecha = date_create('2023-04-19');
+$fecha->modify('+7 days'); // Suma 7 días a la fecha
+echo $fecha->format('Y-m-d'); // Retorna '2023-04-26'
+ 
+//Restar días a una fecha:
+$fecha = date_create('2023-04-19');
+$fecha->modify('-7 days'); // Resta 7 días a la fecha
+echo $fecha->format('Y-m-d'); // Retorna '2023-04-12' 
+
+
+//Obtener el número de días entre dos fechas:
+$fecha1 = date_create('2023-04-19');
+$fecha2 = date_create('2023-05-01');
+$intervalo = date_diff($fecha1, $fecha2); // Retorna un objeto intervalo
+echo $intervalo->format('%R%a días'); // Retorna '+12 días
+
+//Obtener el nombre del día de la semana:
+$fecha = date_create('2023-04-19');
+$nombre_dia = date_format($fecha, 'l'); // Retorna el nombre del día de la semana en inglés
+echo $nombre_dia; // Retorna 'Tuesday'
+
+//Obtener el nombre del mes:
+$fecha = date_create('2023-04-19');
+$nombre_mes = date_format($fecha, 'F'); // Retorna el nombre del mes completo
+echo $nombre_mes; // Retorna 'April' 
+
+timestamp: El parametro opcional tiemstamp es una marca de unix de tipo integer que por defecto es la hora local si no se propporciona ningun valor a timestamp. En otras palabras, es de forma predeterminada el valor de la funcion time()
+
+DateInterval: nos ayuda a formatear un intervalo de tiempo, Representa un intervalo de fechas o una diferencia de fechas .
+
+time: devuelve la fecha unix actual. 
+Devuelve el momento actual medido como el número de segundos desde la Época Unix (1 de Enero de 1970 00:00:00 GMT).
+
+
+DATE FUNCTIONS VS DATE WITH OOP :
+
+
+Procedimientos _ Estructurado _Funciones () :
+
+The DateTime class 
+
+https://www.php.net/manual/en/class.datetime.php
+
+
+Dates Functions ()   :>
+
+https://www.php.net/manual/es/dateinterval.format.php
+
+DateTime::createFromFormat :
+
+OOP Sort :
+
+public static DateTime::createFromFormat( string $format , string %time , DateTimeZone $timeZone = ? ) : DateTime  
+
+Procedimientos de Funciones () :
+
+date_create_from_format( string $format , string $time , DateTimeZone $timezone = ? ) : DateTime    
+
+Devolviese Un Nuevo Objeto DateTime que representa la Fecha y Hora especificadas por la string : time , fromateada en el formato format().
+
+DateTime::createFromFormat 
+https://www.php.net/manual/es/datetime.createfromformat.php 
+
+Tenemos la clase DateTime y a partir de está podemos acceder a diferentes métodos para trabajar con fechas :
+
+$today = date_create();
+$date = DateTime::createFromFormat("j F Y", "1 April 1960");
+echo $date->diff($today)->format("tiene %y años"); 
+
+
+CARBON LIB de php 
+
+https://carbon.nesbot.com/docs/
+https://carbon.nesbot.com/#gettingstarted  
+
+La función add_time() en PHP permite agregar una cantidad de tiempo específica a una marca de tiempo (timestamp) dada, y retorna una nueva marca de tiempo que resulta de la suma. 
+A continuación, se presenta una explicación de cada una de las líneas de código de esta función:
+
+function add_time(string $timestamp, string $timeToAdd) : string { } 
+
+La función add_time() recibe dos parámetros: la marca de tiempo a la que se le quiere agregar tiempo y la cantidad de tiempo que se desea agregar en formato de cadena de texto 
+
+
+La función retorna una cadena de texto que representa la nueva marca de tiempo resultante.
+
+$timestamp = ($timestamp == "now") ? date("Y-m-d  H:i:s") : $timestamp; 
+
+
+MODULARIZACION DEL CODIGO   :
+
+
+Separar el Codigo en Archivos mas Manteibles para Generar Una ESTRUCTURA DE Carpetas que puedan ser mejor Organizado , Sostenido 
+para dar Orden la Estructura de Un Projecto.
+
+X3 * Funciones para hacer el Codigo mas Mantenible y Speradado.
+
+Importar archivos en otro archivo, Importase su Bloque de Codigo. 
+
+i. include("arhvio1.php") ;
+ii. include_One("Archvo2.php") ;
+iii. Require("***") ;
+
+
+Include( ) : Busca Un Archivo para encontrarlo, sin embargo sin No lo encuentra esta va emitir un warning .
+	include() Solo se debe hacer Una Vez .
+
+Include_One( ) : Incluira Un Archivo especifico una sola vez, si No lo encuentra , volverease a incluirlo simeplemente se Ignora .
+
+Require() :  Incluye el Archivo especifico sin problemas, Si No Lo encuentra esta Generala Un Fatal_Error . * 4 * Mandatory Files .
+
+Modularizacion del Codigo :: Dividir el Codigo en diferentes archvios para dar Una mejor Organizacion a mi Projecto en carpetas y Modulos .
+
+
+Namespaces  :
+
+
+Dar SufixNombre a clases ya existentes .  Dar PreNombre a una Clase .
+Los Unicos tipos de Codigo que seran afectados son las clases abstractas , Interfaces , traits , funciones y constantes .
+
+
+namespace NobresDarClase ; 
+
+
+use myApp\Lessons\User as StudentUser ;
+
+
+namespaces /clases /logica index.php
+
+Esto significa que el archivo index.php debe estar ubicado en la raíz del proyecto, dentro de la carpeta de la clase correspondiente
+
+requiere: trae el archivo solicitado .
+
+use: indica la clase a usar, para evitar ambigüedad cuando hay clases con el mismo nombre .
+
+
+Un namespacees es directorio para clases, traits, interfaces, funciones y constantes. Se crean utilizando la palabra reservada namespace al principio del archivo, antes que cualquier otro código, 
+
+
+
+PSR-4  and  Composer  :
+
+
+PSR  :  Conjunto de Reglas / Standards que definen como Debemos trabajar con el Lenguaje .  PHP  Fig  .  
+
+PSR-4 Define la AutoCarga de Archivos,  Luego hace referencia que todos los espacios de nombre deben hacer referencia hacia la ruta de la caprpeta donde dichos archivos estan ubicados .
+
+
+Composer usa este PSR para lograr la AutoLoad de sus archivos. 
+Por tanto Composer lo hace todo por nosotros graciad PSR-4 .
+
+Las Clases se deben Llamar igual que sus Archivos .
+
+El namespace debe ser igual a la Carpeta donde se encuentra Archivo .
+
+Hacer namespace con la direccion de sus Directorios .
+
+Namspace debe indicar la ruta donde esta el archivo . 
+
+
+Front Controller   :
+
+
+Pueden existir varios puntuos de entrada a nuestras web por varios archivos.php que trabajan cada uno por su cuenta .
+
+Un Font Controlller actua como un único punto de entrafa a nuestra pagina web desde la cual se pueden cargar las paginas solicitadas. 
+
+Index.php siempre va ser mi Front_Controler . Luego este archivo index.php va decidir cual pagina cargar .
+
+Front_Controller cargará de forma dinamica mi punto de entrada web.
+
+Punto de entrada siemrpe va a ser por medio de Un Unico Archivo que se va encargar de gestionar todas la peticiones .
+
+
+<?php
+
+$page = $_GET['page'] ?? null;
+
+match ($page) {
+
+    'contact' => require __DIR__ . '/pages/contact.php',
+    'services' => require __DIR__ . '/pages/services.php',
+    default => require __DIR__ . '/pages/home.php'
+    
+};
+
+?>
+
+La constante de PHP __DIR__ tiene la ruta al archivo actual, para que la ruta a la page sea absoluta, y no relativa al archivo en cuestión, ya que si el archivo se importara en otro lado, esto podría dar error por como PHP maneja las rutas de los require/include .
+
+
+<?php
+
+$page = $_GET["page"] ?? null;
+
+if ($page==NULL) {
+
+    require("pages/home.php");
+    
+}else{
+
+    match ($page) {
+    
+        'contact' => require (__DIR__.'/pages/contact.php'),
+        'services' => require __DIR__ . '/pages/services.php',
+        'contact' => require __DIR__ . '/pages/contact.php' ,
+        default => require __DIR__ . '/pages/home.php'
+    };
+}
+
+?>
+
+
+EL Archivo .htaccess   :>
+
+
+Con un Front_Controller  podemos empezar a cargar archivos Dinamicos segun sea la ruta especifica, pero la URL no esta Limpia aun <Sucia/>.
+
+Archivo .htaccess permite seguir trabajando con un Front_Controller,    pero a su vez seguir teniendo URL limpias , faciles de leer > SEO .
+
+
+Crear un Archivo .htaccess 
+
+Se utiliza para reescribir mediante condiciones la url de nuestro sitio web, esto nos permite utilizar la definición de Front Controller pero a su vez teniendo URL’s más limpias, fáciles de leer y buenas para SEO.
+
+pROCEDiMiento :
+
+Tomar la url ingresada por el usuario
+
+La url pasa por el archivo htacess y se somete a las reglas y condiciones registradas en el mismo .
+
+El resultado es enviado al Front Controller para que pueda mostrar al usuario el contenido que solicita .
+
+Ejemplos de .htaccess 
+https://www.bonaval.com/kb/sistemas-operativos/linux-sistemas-operativos/ejemplos-de-htaccess-que-todo-webmaster-deberia-conocer 
+
+Como hacer funcionar “.htaccess” en Apache2 y Debian 9 / 10 .
+https://jclopex.medium.com/como-hacer-funcionar-htaccess-en-apache2-y-debian-9-28d16b2ef95a
+READ :
+https://www.digitalocean.com/community/tutorials/how-to-rewrite-urls-with-mod_rewrite-for-apache-on-ubuntu-20-04
+
+EnablingUseOfApacheHtaccessFiles 
+https://help.ubuntu.com/community/EnablingUseOfApacheHtaccessFiles
+
+Apache Tutorial: .htaccess files :
+
+https://httpd.apache.org/docs/2.0/howto/htaccess.html
+
+Habilitar la SobrEscritura en la /etc/apache2/apache.conf file .
+
+
+Traits   :
+
+
+Esto es Una Plantilla de Méthodos que podemos R_Utiliar en diferentes clases ,  podemos crear un conjunto de metodos que se pueden usar en varias clases diferentes a la vez . Un  trait es para agrupar funcionalidades especificas. . 
+
+Esto es útil para compartir funcionalidades comunes entre clases que no están relacionadas en una jerarquía de herencia.
+
+ Los traits no se instancian directamente, sino que deben ser utilizados en las clases que los importan, permitiendo así una mayor flexibilidad y organización en el código. 
+
+<< Alternativa Herencia por una platilla de metodos Globales que swe pueden USar en Diferentes clases a la vez  />>
+
+Los traits vienen a solucionar un problema de limitaciones de la herencia simple en php, es decir, solucionan el hecho de que una misma clase no puede heredar de dos clases padre. 
+
+Con los traits podemos hacer uso de un conjunto de "rasgos" / métodos sobre varias clases independientes. 
+
+Los Traits No se pueden Instaciar en Objetos .
+
+Para la implementación se debe hacer la invocación mediante su namespace y colocar el nombre del trait dentro de la definición de la clase donde se va a utilizar haciendo uso de la palabra reservada “use”
+
+
+Traits  Dctos php.net 
+
+https://www.php.net/manual/es/language.oop5.traits.php 
+
+
+
+
+
+
+
+
+
+
+

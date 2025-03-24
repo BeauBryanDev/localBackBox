@@ -1,0 +1,19 @@
+{
+    "name": "beaunix/php-sql",
+    "description": "SQL DB connection with php",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "BeauBryanDev",
+            "email": "bryan.beau.186@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "DB\\" : "DB/"
+        }
+    },
+
+    "require": {}
+}

@@ -1,0 +1,236 @@
+REST API -RESTFUL  _:
+
+
+Una API REST es una forma de permitir que diferentes programas de ordenador se comuniquen entre sí a través de Internet. Ya que la comunicación debe darse a través de protocolos y estándares para enviar y recibir datos, estas APIs están diseñadas bajo los principios de REST (que significa Representational State Transfer) y son útiles para interacciones simples.
+
+RESt-API : Ellos son el Puente de comunicación entre frontend y backend. 
+
+
+Principios de una API REST (API RESTful) :
+
+Una API RESTful es una interfaz que utiliza los principios de REST para comunicarse hacia y desde un servidor.
+
+El principio más importante en las APIs RESTful es el uso de los métodos HTTP:
+
+* GET
+* POST
+* PUT
+* DELETE .
+
+Estos métodos son empleados por los clientes para crear, manipular y eliminar datos en los servidores, respectivamente. 
+
+Existen los Methodos HTTP .
+
+
+Elementos de una API REST o API RESTful :
+
+Para que una API sea REST esta debe de funcionar bajo tres conceptos: 
+
+1. Recurso: todo dentro de una API RESTful debe ser un recurso.
+
+2. URI: los recursos en REST siempre se manipulan a partir de la URI, identificadores universales de recursos.
+
+3. Acción: todas las peticiones a tu API RESTful deben estar asociadas a uno de los verbos de HTTP: GET para obtener un recurso,  POST para escribir un recurso, PUT para modificar un recurso y DELETE para borrarlo. 
+
+
+Una API  'Application-Programming-Interface' :
+
+Esta es una interfaz que permite que diferentes programas de ordenador se comuniquen entre sí, mientras que una API REST es un tipo de API que sigue un conjunto de reglas y estándares que la hacen más fácil de usar y más compatible con otras aplicaciones.
+
+De esta manera, una API REST puede ser una buena opción para permitir que diferentes aplicaciones se integren de manera más sencilla. 
+
+REST es un estilo de arquitectura de software enfocado en el intercambio de recursos y basado en HTTP. 
+
+ Le agrega una capa muy delgada de complejidad y abstracción a HTTP. Mientras que HTTP es transferencia de archivos, REST se basa en la transferencia de recursos. 
+ 
+Conviene usarlo cuando las interacciones son simples, dónde lo que queremos hacer son las operaciones básicas de crear un recurso, quitar recursos o modificarlos. También cuando los recursos de hardware son limitados, por que como es muy cercano al HTTP no hay más que necesitemos instalar.
+
+Esto es Conveniente Utilizar RESt : Cuando las interacciones son un poco más complejas, es decir necesitamos que el servidor aporte más lógica, ejemplo: la validación de algún documento. 
+
+REST es un conjunto de principios que definen la forma en que se deben crear, leer, actualizar y eliminar los datos. 
+
+Es una arquitectura conocida como cliente-servidor, en la que el servidor y el cliente actúan de forma independiente, siempre y cuando la interfaz sea la misma al procesar una solicitud y una respuesta, que son los elementos esenciales. 
+
+El servidor expone la API REST y el cliente hace uso de ella. El servidor almacena la información y la pone a disposición del usuario, mientras que el cliente toma la información y la muestra al usuario o la utiliza para realizar posteriores peticiones de más información. 
+
+REST es muy útil cuando:
+
+Las interacciones son simples.
+Los recursos de tu hardware son limitados. 
+
+Una petición REST completa se basa en:
+
+- URL(Dominio, protocolo) 
+- Verbo HTTP (GET, PUT, POST, DELETE) .
+
+
+Una API RESTful, es una API diseñada en base a los conceptos de REST. 
+Recursos URIs (URI Universal Resources Identifiers), Por tanto el recurso sobre el que queremos realizar la acción. Acción.
+
+REST permite mandar json, xml, binarios (imágenes, documentos), text, etc. en cambio con SOAP que solo permite la transmisión de datos en formato XML, json es mucho mas liviano y rapido en su procesamiento dado que es interpretado de forma natural por javascript.
+
+HTTP solo se encarga de hacer transferencias de archivos mientras una API REST se encarga de transferir recursos, como la información especifica de un elemento de nuestra aplicación. 
+
+ Para que una API sea REST esta debe de funcionar bajo tres conceptos: 
+ 
+i. Recurso: Una API REST siempre debe indicar a un recurso, ya sea para obtener o crear.
+
+ii. URI: Debe contener el identificador único universal de recurso.
+
+iii. Acción: Por último, debe especificar la acción que se hará con el recurso, como crearlo o eliminarlo. Este tipo de API suele ser muy efectivo cuando la interacción entre entidades es simple, como solo intercambio de información .
+
+
+Los Rrecursos en REST siempre se manipulan a partir de la URI, identificadores uniformes de recursos, Uniform Resource Identifier.
+
+!Important to Read ASAP :
+
+Simple Object Access Protocol
+
+https://es.wikipedia.org/wiki/Simple_Object_Access_Protocol
+
+Localizador de recursos uniforme
+
+https://es.wikipedia.org/wiki/Localizador_de_recursos_uniforme
+
+HTTP headers 
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers 
+
+El Methodo HTTP GET solicita una representación de un recurso específico. Las peticiones que usan el método GET sólo deben recuperar datos. 
+HEAD El método HEAD pide una respuesta idéntica a la de una petición GET, pero sin el cuerpo de la respuesta. POST El método POST se utiliza para enviar una entidad a un recurso en específico, causando a menudo un cambio en el estado o efectos secundarios en el servidor. 
+PUT El modo PUT reemplaza todas las representaciones actuales del recurso de destino con la carga útil de la petición.
+
+PATCH El método PATCH es utilizado para aplicar modificaciones parciales a un recurso.
+
+DELETE El método DELETE borra un recurso en específico. 
+CONNECT El método CONNECT establece un túnel hacia el servidor identificado por el recurso.
+
+PUT hace un reemplazo COMPLETO del recurso, si queremos hacer modificaciones puntuales debemos usar el método PATCH.
+
+DELETE lo que hace es eliminar un recurso especificado. 
+
+Por Tanto que HTTP :
+
+GET optener recursos, tabnto colecciones como recursos puntulaes.
+POST crear recursos en tu servivod.
+PUT remplazo de recursos existentes por uno nuevo .
+Delete borra el recurso .
+
+En PHP no existen los objetos JSON, por lo que necesitamos una forma fácil de trabajar con objetos JSON que son muy importantes, entonces para eso son estas funciones json_encode()  && json_decode(), Estas s0n los traductores de PHP para que pueda comunicarse con cualquier otro lenguaje usando JSON.
+
+https://xkdc.com/info.0.json
+
+https://developer.mozilla.org/en-US/docs/Web/HTTP/MIME_types/Common_types
+
+
+Auth HTTP :
+
+Para proteger nuestros datos en nuestros servidor tenemos que crear una autenticación vía HTTP.
+
+El problema que tiene la autenticación HTTP es:
+
+Poco segura → Porque toda la información de autenticación viaja por la url.
+Ineficiente → Porque cada veces que se realice una petición tienes que autenticarte.
+
+
+Authenticacion  via HMAC  :
+
+<Hash_Message_Auth_Code />
+
+
+Para esta autenticación necesitamos 3 elementos:
+
+Función Hash: Difícil de romper, que sea conocida por el cliente y servidor.
+Clave secreta: Solamente la pueden saber el cliente y el servidor, será utilizada para corroborar el hash.
+UID: El id del usuario, será utilizado dentro de la función hash junto con la clave secreta y un timestamp.
+
+
+Es mucho más segura que la autenticación vía HTTP, por ello la información que se envía a través de este método no es muy sensible. 
+
+
+Authenticacion AcCess Token :
+
+
+Está forma es la más compleja de todas, pero también es la forma más segura utilizada para información muy sensible. 
+El servidor al que le van a hacer las consultas se par3 en dos: 
+
+Uno se va a encargar específicamente de la autenticación.
+El otro se va a encargar de desplegar los recursos de la API. 
+
+* AuthServer ;
+** MainServer ['Deliver_Resources'];
+
+
+
+El flujo de la petición es la siguiente:
+
+i. Nuestro usuario hace una petición al servidor de autenticación para pedir un token.
+
+ii. El servidor AuthServer le devuelve el token.
+iii. El usuario hace una petición al servidor para pedir recursos de la API.
+
+iv. El servidor con los recursos hace una petición al servidor de autenticación para verificar que el token sea válido.
+
+v. Una vez verificado el token, el servidor le devuelve los recursos al cliente. 
+
+Access Token :
+
+Los tokens de acceso se utilizan en la autenticación basada en tokens para permitir que una aplicación acceda a una API. 
+
+La aplicación recibe un token de acceso después de que un usuario autentica y autoriza el acceso con éxito, luego pasa el token de acceso como una credencial cuando llama a la API de destino.
+
+El token pasado informa a la API que el portador del token ha sido autorizado para acceder a la API y realizar acciones específicas especificadas por el alcance otorgado durante la autorización. 
+
+
+AJAX -INTTRO  .
+
+ASYNC - JS - XML .
+
+Es una forma de relizar peticiones a servidores sin necesariamente esperar a que la petición termine, existen muchas maneras de usarlo, antes se usaban objetos de JavaScript como XMLHttpRequest (el clásico) Internet Explorer usaba otro que se llamaba ActiveXObject, pero gracias a jQuery muchos los recordamos gracias a su función sencilla que era: $.ajax (o $get, $.post), actualmente existen muchas librerías de JavaScript que te permiten hacer peticiones Ajax como lo son axios, que es una librería muy completa, Sin Embgargo el método nativo actualmente se llama fetch() . 
+
+
+Funcionamiento :
+
+El cliente hace una petición HTTP GET
+Obtiene HTML + JS y el navegador interpreta todo para mostrar la página, cuando tú haces click en algún botón o algo parecido
+En ese momento, se dispara un nuevo pedido al servidor, este es el pedido que viaja vía AJAX y del otro lado, hay un servidor de tipo Restful que responderá con información JSON
+Una vez que llegue el JSON al navegador del cliente, JS se va a encargar de tomar estos datos y ponerlos en la estructura .
+
+
+Ajax es una tecnologia y una manera de realizar peticiones asincronas desde los navegadores web utilizando el objeto XMLHttpRequest. actualmente lo navegadores modernos proveen una libreria llamada fetch para realizar estas llamadas sin necesidad de instalar nada. 
+
+
+if (in_array( $_SERVER["REQUEST_URI"], [ '/index.html', '/', '' ] )) {
+    echo file_get_contents( 'index.html' );
+    die;
+}
+
+
+X7 * Buenas Practicas de REstAPI  : 
+
+1. Siempre utiliza sustantivos para nombrar tus recursos.
+2. Añade los nombres en plural para las urls.
+3. Las modificaciones a recursos deben hacerse con su verbo HTTP correspondiente: POST, PUT o DELETE.
+4. Para devolver recursos asociados a otro recurso utiliza url que incorporen subrecursos: /Autos/1/Choferes.
+5. Navegabilidad vía vínculos.
+6.Cuando devuelvas colecciones deben ser filtrables, ordenables y paginables.
+7. Versiona tu API, añade el número de versión en la url: v1/Autos.
+
+
+Visit this WebRes : 
+https://jsonapi.org/format/ 
+
+https://www.heroku.com/php
+
+
+
+
+
+
+
+
+
+
+
+
+
