@@ -1,2 +1,6 @@
+#Ignore the vendor folder 
 /vendor /
 
+#Also Ignore the other files and directories from logs 
+
+*.log
