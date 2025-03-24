@@ -4,3 +4,41 @@
 #Also Ignore the other files and directories from logs 
 
 *.log
+
+# Ignore directories
+/vendor/
+/node_modules/
+/cache/
+/logs/
+/tmp/
+/.idea/
+/.vscode/
+/nbproject/
+
+# Ignore files
+*.log
+*.tmp
+*.cache
+*.env
+*.DS_Store
+
+# Composer dependencies
+composer.lock
+
+# Ignore specific files by extension
+*.iml
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.bak
+
+# Ignore system files
+Thumbs.db
+.DS_Store
+````
+
+### Summary of Commands
+Here are all the commands summarized:
+
+
+
