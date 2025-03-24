@@ -71,3 +71,23 @@ Thumbs.db
 /php_00P/vendor
 _phpBox/vendor
 
+**/vendor/
+**/node_modules/
+**/cache/
+**/logs/
+**/tmp/
+**/.idea/
+**/.vscode/
+**/nbproject/
+*.log
+*.tmp
+*.cache
+*.env
+*.DS_Store
+composer.lock
+*.iml
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.bak
+Thumbs.db
