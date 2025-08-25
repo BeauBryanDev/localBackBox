@@ -8,5 +8,6 @@ enum WithdrawTypeEnum: int {
     case POS = 2;
     case ONLINE = 3;
     case CHEQUE = 4;
+    case BANK_TRANSFER = 5;
 
 }
