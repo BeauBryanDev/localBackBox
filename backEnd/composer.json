@@ -11,8 +11,9 @@
     ],
     "autoload": {
         "psr-4": {
-            "DB\\" : "DB/",
-            "App\\" : "app/"
+            "App\\" : "app/",
+            "DB\\" : "DB/"
+            
         }
     },
 

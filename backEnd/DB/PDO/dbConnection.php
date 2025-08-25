@@ -32,52 +32,43 @@ try {
 
 }
 */
-
 namespace DB\PDO;
 
 class dbConnection {
 
-    private static object $instance;
+    private static $instance;
     private $connection;
 
     private function __construct() {
-
         $this->set_connection();
     }
 
-    public static function getInstance() {
-
-        if (!self::$instance instanceof self)
-
+    public static function getInstance(): self {
+        if (!self::$instance instanceof self) {
             self::$instance = new self();
-
+        }
         return self::$instance;
-
     }
 
-    public function get_db_instance() {
-
+    public function get_db_instance(): \PDO {
         return $this->connection;
     }
 
-    private function set_connection() {
-
+    private function set_connection(): void {
         $server = "localhost";
         $database = "SELF-SPENDINGS";
         $username = "dbkeeper";
         $password = "Set.Fire.tothe.Rain*528+";
 
         try {
-            $this->connection = new \PDO("mysql:host=$server;dbname=$database", $username, $password);
+            $this->connection = new \PDO("mysql:host=$server;dbname=$database;charset=utf8", $username, $password);
             $this->connection->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
-            $setnames = $this->connection->prepare("SET NAMES 'utf8'");
-            $setnames->execute();
+            $this->connection->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
 
-            //var_dump($setnames);
-
-        } catch (\Exception $e) {
-            die("Ha ocurrido un error en la línea " . $e->getLine() . "<br>" . $e->getMessage());
+        } catch (\PDOException $e) {
+            // Un mensaje más útil para depuración en desarrollo
+            die("Error de conexión a la base de datos: " . $e->getMessage());
         }
     }
-
 }
+
