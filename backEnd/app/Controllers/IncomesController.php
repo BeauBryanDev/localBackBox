@@ -16,7 +16,31 @@ class IncomesController {
     }
 
     public function index() {
-        // Implementación de getIncomes aquí
+
+        //$this->db->prepare( "SELECT * FROM INCOMES");
+        $stmt = $this->db->prepare( "SELECT * FROM INCOMES");
+        $stmt->execute();
+        $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($results as $row) {
+            echo "ID: " . $row['MID'] . "<br> \n";
+            echo "Método de Pago: " . $row['payment_method'] . "<br> \n";
+            echo "Tipo: " . $row['type'] . "<br> \n";
+            echo "Fecha: " . $row['date'] . "<br> \n";
+            echo "Cantidad: $ " . $row['amount'] . "<br> \n";
+            echo "Descripción: " . $row['description'] . "<br> \n";
+            echo "<hr>\n";
+        }
+        //index by using common fetch while loop
+
+        while ( $row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            echo "ID: " . $row['MID'] . "<br> \n";
+            echo "Método de Pago: " . $row['payment_method'] . "<br> \n";
+            echo "Tipo: " . $row['type'] . "<br> \n";
+            echo "Fecha: " . $row['date'] . "<br> \n";
+            echo "Cantidad: $ " . $row['amount'] . "<br> \n";
+            echo "Descripción: " . $row['description'] . "<br> \n";
+            echo "<hr>\n";
+        }
     }
 
     public function store(array $data): void {

@@ -34,17 +34,30 @@ use App\ENUMS\WithdrawTypeEnum;
 
 //     echo "Datos insertados correctamente en la base de datos.";
 
+
 // } catch (\Exception $e) {
 //     echo "Ha ocurrido un error al procesar la solicitud: " . $e->getMessage();
 // }
 
 $db = dbConnection::getInstance()->get_db_instance();
 
+// $withdrawals_controller = new WithdrawalsController($db);
+// $withdrawals_controller->store([
+//     'payment_method' => PaymentMethodEnum::DEBIT_CARD->value,
+//     'type' => WithdrawTypeEnum::ATM->value,
+//     'date' => "2024-12-24",
+//     'amount' => 720,
+//     'description' => "Cash withdrawal from ATM"
+// ]);
+//echo "Datos insertados correctamente en la base de datos. \n";
+
+
 $withdrawals_controller = new WithdrawalsController($db);
-$withdrawals_controller->store([
-    'payment_method' => PaymentMethodEnum::DEBIT_CARD->value,
-    'type' => WithdrawTypeEnum::ONLINE->value,
-    'date' => "2024-12-24",
-    'amount' => 420,
-    'description' => "Online purchase with Credit Card on Spotify.com"
-]);
+$withdrawals_controller->index();
+
+
+$withdrawals_controller->show(8);
+
+$incomes_controller = new IncomesController($db);
+$incomes_controller->index();
+
