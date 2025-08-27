@@ -61,3 +61,5 @@ $withdrawals_controller->show(8);
 $incomes_controller = new IncomesController($db);
 $incomes_controller->index();
 
+$incomes_controller->destroy(17);
+

@@ -61,17 +61,64 @@ class IncomesController {
 
     public function show($id) {
 
+        $stmt = $this->db->prepare("SELECT * FROM INCOMES WHERE MID = :id");
+        $stmt->execute(['id' => $id]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($result) {
+            echo "ID: " . $result['MID'] . "<br> \n";
+            echo "Método de Pago: " . $result['payment_method'] . "<br> \n";
+            echo "Tipo: " . $result['type'] . "<br> \n";
+            echo "Fecha: " . $result['date'] . "<br> \n";
+            echo "Cantidad: $ " . $result['amount'] . "<br> \n";
+            echo "Descripción: " . $result['description'] . "<br> \n";
+        } else {
+            echo "No se encontró el ingreso con ID: $id";
+        }
     }
 
     public function edit () {
 
     }
-    public function update($id) {
+    public function update($data, $id) {
+
+        $stmt = $this->db->prepare("UPDATE INCOMES SET payment_method = :payment_method, type = :type, date = :date, amount = :amount, description = :description WHERE MID = :id");    
+
+        $stmt->execute([
+            'payment_method' => $data['payment_method'],
+            'type' => $data['type'],
+            'date' => $data['date'],
+            'amount' => $data['amount'],
+            'description' => $data['description'],
+            'MID' => $id
+        ]);
 
     }
 
     public function destroy($id) {
 
+        $this->db->beginTransaction();
+
+        try {
+            $stmt = $this->db->prepare("DELETE FROM INCOMES WHERE MID = :id");
+            $stmt->execute(['id' => $id]);
+
+            $areYouSure = readLine("Are You Sure You want to delete this data row $id ? [ yes/no ]");
+
+            if (strtolower($areYouSure) !== 'yes') {
+                throw new \Exception("Deletion cancelled by user.\n");
+            } 
+            else {
+
+                $this->db->commit();
+                echo "Eliminado exitoso!.\n";
+
+            }
+            
+        } catch (\Exception $e) {
+            $this->db->rollBack();
+            echo "Error al eliminar el ingreso: \n" . $e->getMessage();
+        }
     }
 
 }
