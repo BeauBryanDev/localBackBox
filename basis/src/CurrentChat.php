@@ -13,23 +13,35 @@ class CurrentChat {
     public function startChat() {
         //return $this->chat;
 
-        echo "Ask me anything." . PHP_EOL;
+        $this->AiWellcome();
 
 
         while ( true )  {
 
-            $input = readline('> ');
+            $input = readline('You > ');
 
-            if ( $input === 'exit' || $input === 'quit' ) {
+            if ( trim($input) === 'exit' || trim($input) === 'quit' ) {
                 echo "Goodbye!" . PHP_EOL;
                 break;
             }
 
-            $response = $this->chat->getResponse($input);
+            $response = $this->getChatResponse($input);
             echo $response . PHP_EOL;
 
         }
 
     }
+
+    private function AiWellcome() {
+
+        echo "Hello. Ask me anything." . PHP_EOL;
+        echo "Write [ exit//quit ] to leave chat :)\n";
+    }
+
+    public function getChatResponse( string $input): string {
+
+        return $this->chat->getResponse($input);
+
+    }   
 
 }

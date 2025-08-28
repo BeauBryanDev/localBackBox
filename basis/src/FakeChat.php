@@ -2,8 +2,8 @@
 
 namespace App;
 
-class FakeChat implements AiServiceInterface{
-    public function chat(string $input) {
+class FakeChat implements AiServiceInterface {
+    public function getResponse(string $input): string {
 
         sleep(1);
         if (strpos($input, 'hi') !== false || strpos($input, 'hello') !== false || strpos($input, 'hola') !== false) {
