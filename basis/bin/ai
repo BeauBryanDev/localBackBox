@@ -1,33 +1,6 @@
 #!/usr/bin/env php
 <?php
 
-require __DIR__ . '/../vendor/autoload.php';
+$appChat = require __DIR__ . '/../bootstrap.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/..');
-$dotenv->load();
-
-// use App\FakeChat;
-use App\OllamaChat;
-
-var_dump($_ENV['MESSAGE']);
-
-// use App\OpenAiChat;
-
-$ai_chat =  new OllamaChat();
-
-echo "Ask me anything." . PHP_EOL;
-
-
-while ( true )  {
-
-    $input = readline('> ');
-
-    if ( $input === 'exit' || $input === 'quit' ) {
-        echo "Goodbye!" . PHP_EOL;
-        break;
-    }
-
-    $response = $ai_chat->getOllamaChat($input);
-    echo $response . PHP_EOL;
-
-}
+$appChat->startChat();

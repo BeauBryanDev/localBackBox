@@ -3,8 +3,9 @@
 namespace App;
 
 use ArdaGnsrn\Ollama\Ollama;
+use ArdaGnsrn\Ollama\Responses\StreamResponse;
 
-class OllamaChat { 
+class OllamaChat implements AiServiceInterface {
 
     private Ollama $ollama;
     protected $client;
@@ -13,7 +14,7 @@ class OllamaChat {
         $this->client = Ollama::client();
     }
 
-    public function getOllamaChat(string $input) {
+    public function getResponse(string $input): string {
 
         $response = $this->client->chat()->create([
 

@@ -2,7 +2,7 @@
 
 namespace App;
 
-class FakeChat {
+class FakeChat implements AiServiceInterface{
     public function chat(string $input) {
 
         sleep(1);
